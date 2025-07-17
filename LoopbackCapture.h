@@ -52,8 +52,7 @@ private:
     HRESULT OnSampleReady(IMFAsyncResult* pResult);
 
     HRESULT InitializeLoopbackCapture();
-    HRESULT CreateWAVFile();
-    HRESULT FixWAVHeader();
+    HRESULT CreateStdOutHandler();
     HRESULT OnAudioSampleRequested();
 
     HRESULT ActivateAudioInterface(DWORD processId, bool includeProcessTree);
@@ -69,15 +68,12 @@ private:
 
     wil::unique_event_nothrow m_SampleReadyEvent;
     MFWORKITEM_KEY m_SampleReadyKey = 0;
-    wil::unique_hfile m_hFile;
+    HANDLE m_hFile;
     wil::critical_section m_CritSec;
     DWORD m_dwQueueID = 0;
-    DWORD m_cbHeaderSize = 0;
-    DWORD m_cbDataSize = 0;
 
     // These two members are used to communicate between the main thread
     // and the ActivateCompleted callback.
-    PCWSTR m_outputFileName = nullptr;
     HRESULT m_activateResult = E_UNEXPECTED;
 
     DeviceState m_DeviceState{ DeviceState::Uninitialized };

@@ -4,6 +4,9 @@
 #include <Windows.h>
 #include <iostream>
 #include "LoopbackCapture.h"
+#include <fcntl.h>
+#include <io.h>
+
 
 void usage()
 {
@@ -22,6 +25,8 @@ void usage()
 
 int wmain(int argc, wchar_t* argv[])
 {
+    //_setmode(_fileno(stdout), _O_BINARY);
+
     if (argc != 2)
     {
         usage();
@@ -48,12 +53,12 @@ int wmain(int argc, wchar_t* argv[])
     }
     else
     {
-        std::wcout << L"Capturing 10 seconds of audio." << std::endl;
-        Sleep(10000);
 
-        loopbackCapture.StopCaptureAsync();
+        // Sleep 1s infinite
+        while (true) {
+            Sleep(1000);
+        }
 
-        std::wcout << L"Finished.\n";
     }
 
     return 0;
