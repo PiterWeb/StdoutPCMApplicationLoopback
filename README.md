@@ -11,4 +11,5 @@ StdoutPCMApplicationLoopback.exe 14136 | ffmpeg -f s16le -ac 2 -ar 44100 -i pipe
 
 ```
 
-
+### Build:
+Follow the [build instructions of the original project](https://github.com/microsoft/Windows-classic-samples/tree/main/Samples/ApplicationLoopback#to-build-the-sample-using-the-command-prompt)
