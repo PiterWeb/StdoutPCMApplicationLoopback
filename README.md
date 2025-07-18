@@ -7,7 +7,7 @@ Stream through stdout (only works on CMD, PowerShell does not work) PCM audio da
 Example of use with ffmpeg (generate .wav file using pipe streaming):
 ```bash
 
-StdoutPCMApplicationLoopback.exe 14136 | ffmpeg -f s16le -ac 2 -ar 44100 -i pipe: output.wav
+StdoutPCMApplicationLoopback.exe <pid> | ffmpeg -f s16le -ac 2 -ar 44100 -i pipe: output.wav
 
 ```
 
