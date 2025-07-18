@@ -5,7 +5,7 @@ This programm is a modification of [Microsoft Sample ApplicationLoopback](https:
 > The software only works on Windows OS
 
 ### Objective: 
-Stream through stdout (only works on CMD, PowerShell does not work) PCM audio data to pipe to other programs like ffmpeg/ffplay ...
+Stream through stdout (only works on CMD, PowerShell does not work) PCM audio data to pipe to other programs like ffmpeg/ffplay or any that can read PCM from stdin.
 
 Example of use with ffmpeg (generate .wav file using pipe streaming):
 ```bash
